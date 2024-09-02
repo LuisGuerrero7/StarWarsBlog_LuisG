@@ -25,9 +25,9 @@ export const Home = () => {
 							<p className="card-text">Eye-color: {item.properties.eye_color}</p>
 						</div>
 						<div className="d-flex justify-content-between mt-3">
-							<Link className="btn btn-outline-primary" to={`/single/${item.uid}`}>Learn more!</Link>
+							<Link className="btn btn-outline-primary" to={`/characters/${item.uid}`}>Learn more!</Link>
 							<button type="button" className="btn btn-outline-warning">
-								heart
+								<i className="fa-regular fa-heart"></i>
 							</button>
 						</div>
 					</div>
@@ -50,9 +50,9 @@ export const Home = () => {
 							<p className="card-text">Pilots: {item.pilots}</p>
 						</div>
 						<div className="d-flex justify-content-between mt-3">
-							<button type="button" className="btn btn-outline-primary">Learn more!</button>
+						<Link className="btn btn-outline-primary" to={`/vehicles/${item.uid}`}>Learn more!</Link>
 							<button type="button" className="btn btn-outline-warning">
-								heart
+								<i className="fa-regular fa-heart"></i>
 							</button>
 						</div>
 					</div>
@@ -62,7 +62,7 @@ export const Home = () => {
 		</div>
 
 		<div className="container gap-3 mt-2">
-			<h1 className="text-start">Especies</h1>
+			<h1 className="text-start">Species</h1>
 			<div className="row gap-3">
 				{store.especiesList.map( item => <div key={item.uid} className="card" style={{width: "18rem"}}>
 					<img src={`https://starwars-visualguide.com/assets/img/species/${item.uid}.jpg`} className="card-img-top" alt="..."/>
@@ -74,9 +74,9 @@ export const Home = () => {
 							<p className="card-text">Lifespan: {item.average_lifespan}</p>
 						</div>
 						<div className="d-flex justify-content-between mt-3">
-							<button type="button" className="btn btn-outline-primary">Learn more!</button>
+						<Link className="btn btn-outline-primary" to={`/species/${item.uid}`}>Learn more!</Link>
 							<button type="button" className="btn btn-outline-warning">
-								heart
+								<i className="fa-regular fa-heart"></i>
 							</button>
 						</div>
 					</div>
