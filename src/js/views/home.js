@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useActionData } from "react-router-dom";
 
 export const Home = () => {
 
-	const {store} = useContext(Context)
-
-	const favorites = [];
+	const {store , actions} = useContext(Context)
 
 	return (
 	<div className="text-center mt-5">
@@ -26,8 +24,17 @@ export const Home = () => {
 						</div>
 						<div className="d-flex justify-content-between mt-3">
 							<Link className="btn btn-outline-primary" to={`/characters/${item.uid}`}>Learn more!</Link>
-							<button type="button" className="btn btn-outline-warning">
-								<i className="fa-regular fa-heart"></i>
+							
+							<button type="button" className="btn btn-outline-warning" 
+								onClick={()=>{
+									actions.addFavorite(item.properties.name);
+								}}
+							>
+								{/* {
+									store.favorites.includes(item.name) ? 
+									"Already in favs" : <i className="fa-regular fa-heart"></i>
+								} */}
+							
 							</button>
 						</div>
 					</div>

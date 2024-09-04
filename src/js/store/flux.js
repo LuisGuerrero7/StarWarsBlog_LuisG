@@ -16,18 +16,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			charactersList : [],
 			vehiclesList: [],
-			especiesList: []
+			especiesList: [],
+			favorites: [],
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+
+			addFavorite: (itemName) => {
+				console.log(itemName)
+				const store = getStore();
+				// if(!store.favorites.includes(itemName)){
+				// 	setStore({favorites: [...store.favorites, itemName] })
+				// }
+				setStore({favorites: [...store.favorites, itemName] })
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-					PARA HOME USAR .DEV PARA LEARN MORE USAR .TECH
-				*/
+
+			removeFavorite: (itemName) => {
+				const store = getStore();
+				setStore({favorites: store.favorites.filter(name => name != itemName )})
 			},
 
 			loadCharacters: async () => {
@@ -46,13 +51,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log(charactersItems)
 			},
 
-			loadLearnMore: () => {
-				fetch("https://www.swapi.tech/api/people/1")
-				.then(res => res.json())
-				.then(data => console.log(data))
-				.catch(err => console.error(err))
-			},
-
 			loadVehicles : () => {
 				fetch("https://www.swapi.tech/api/vehicles")
 				.then(res => res.json())
@@ -66,22 +64,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(data => setStore({especiesList: data.results}))
 				.catch(err => console.error(err))
 			},
-
-			
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
 		}
 	};
 };
