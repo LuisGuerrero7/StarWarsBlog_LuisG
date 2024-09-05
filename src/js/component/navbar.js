@@ -14,33 +14,30 @@ export const Navbar = () => {
 				</span>
 			</Link>
 					
-				<Link to="/demo">
 					<div className="dropdown m-4">
 						<button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites
 						</button>
-						<ul className="dropdown-menu">
+						<ul className="dropdown-menu show">
 
 							{
 								store.favorites.map(
-									(item,index) => {
+									(item,index) => (
 										<li key={index}>
 											<p className="dropdown-item">
 												{item}
 											</p>
 											<button 
-												onClick={actions.removeFavorite(item)}
+												onClick={ () => actions.removeFavorite(item)}
 											>
 												<i className="fa-solid fa-trash"></i>
 											</button>
 										</li>
-									}
+									)
 								)
 							}
 						</ul>
 					</div>
-				</Link>
-
 		</nav>
 	);
 };

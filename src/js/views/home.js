@@ -30,10 +30,10 @@ export const Home = () => {
 									actions.addFavorite(item.properties.name);
 								}}
 							>
-								{/* {
-									store.favorites.includes(item.name) ? 
+								{
+									store.favorites.includes(item.properties.name) ? 
 									"Already in favs" : <i className="fa-regular fa-heart"></i>
-								} */}
+								}
 							
 							</button>
 						</div>
@@ -57,7 +57,7 @@ export const Home = () => {
 							<p className="card-text">Pilots: {item.pilots}</p>
 						</div>
 						<div className="d-flex justify-content-between mt-3">
-						<Link className="btn btn-outline-primary" to={`/vehicles/${item.uid}`}>Learn more!</Link>
+							<Link className="btn btn-outline-primary" to={`/vehicles/${item.uid}`}>Learn more!</Link>
 							<button type="button" className="btn btn-outline-warning">
 								<i className="fa-regular fa-heart"></i>
 							</button>
@@ -81,7 +81,7 @@ export const Home = () => {
 							<p className="card-text">Lifespan: {item.average_lifespan}</p>
 						</div>
 						<div className="d-flex justify-content-between mt-3">
-						<Link className="btn btn-outline-primary" to={`/species/${item.uid}`}>Learn more!</Link>
+							<Link className="btn btn-outline-primary" to={`/species/${item.uid}`}>Learn more!</Link>
 							<button type="button" className="btn btn-outline-warning">
 								<i className="fa-regular fa-heart"></i>
 							</button>

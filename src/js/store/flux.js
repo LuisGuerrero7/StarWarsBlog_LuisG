@@ -24,10 +24,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavorite: (itemName) => {
 				console.log(itemName)
 				const store = getStore();
-				// if(!store.favorites.includes(itemName)){
-				// 	setStore({favorites: [...store.favorites, itemName] })
-				// }
-				setStore({favorites: [...store.favorites, itemName] })
+				if(!store.favorites.includes(itemName)){
+					setStore({favorites: [...store.favorites, itemName] })
+				}
+				// setStore({favorites: [...store.favorites, itemName] })
 			},
 
 			removeFavorite: (itemName) => {
