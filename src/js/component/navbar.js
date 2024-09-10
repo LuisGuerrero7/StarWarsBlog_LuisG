@@ -14,11 +14,11 @@ export const Navbar = () => {
 				</span>
 			</Link>
 					
-					<div className="dropdown m-4">
+					<div className="dropdown m-4" style={{paddingRight: "70px"}}>
 						<button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites
 						</button>
-						<ul className="dropdown-menu show">
+						<ul className="dropdown-menu">
 
 							{
 								store.favorites.map(
@@ -26,12 +26,12 @@ export const Navbar = () => {
 										<li key={index}>
 											<p className="dropdown-item">
 												{item}
-											</p>
-											<button 
+												<button 
 												onClick={ () => actions.removeFavorite(item)}
-											>
-												<i className="fa-solid fa-trash"></i>
-											</button>
+												>
+													<i className="fa-solid fa-trash"></i>
+												</button>
+											</p>										
 										</li>
 									)
 								)

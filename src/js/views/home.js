@@ -44,7 +44,7 @@ export const Home = () => {
 		</div>
 
 
-		<div className="container gap-3 mt-2">
+		<div className="container gap-3 mt-4 pt-4">
 			<h1 className="text-start">Vehicles</h1>
 			<div className="row gap-3">
 				{store.vehiclesList.map( item => <div key={item.uid} className="card" style={{width: "18rem"}}>
@@ -58,8 +58,16 @@ export const Home = () => {
 						</div>
 						<div className="d-flex justify-content-between mt-3">
 							<Link className="btn btn-outline-primary" to={`/vehicles/${item.uid}`}>Learn more!</Link>
-							<button type="button" className="btn btn-outline-warning">
-								<i className="fa-regular fa-heart"></i>
+							<button type="button" className="btn btn-outline-warning" 
+								onClick={()=>{
+									actions.addFavorite(item.name);
+								}}
+							>
+								{
+									store.favorites.includes(item.name) ? 
+									"Already in favs" : <i className="fa-regular fa-heart"></i>
+								}
+							
 							</button>
 						</div>
 					</div>
@@ -68,7 +76,7 @@ export const Home = () => {
 			</div>
 		</div>
 
-		<div className="container gap-3 mt-2">
+		<div className="container gap-3 mt-4" pt-4>
 			<h1 className="text-start">Species</h1>
 			<div className="row gap-3">
 				{store.especiesList.map( item => <div key={item.uid} className="card" style={{width: "18rem"}}>
@@ -82,8 +90,16 @@ export const Home = () => {
 						</div>
 						<div className="d-flex justify-content-between mt-3">
 							<Link className="btn btn-outline-primary" to={`/species/${item.uid}`}>Learn more!</Link>
-							<button type="button" className="btn btn-outline-warning">
-								<i className="fa-regular fa-heart"></i>
+							<button type="button" className="btn btn-outline-warning" 
+								onClick={()=>{
+									actions.addFavorite(item.name);
+								}}
+							>
+								{
+									store.favorites.includes(item.name) ? 
+									"Already in favs" : <i className="fa-regular fa-heart"></i>
+								}
+							
 							</button>
 						</div>
 					</div>
